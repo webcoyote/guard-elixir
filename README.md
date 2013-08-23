@@ -5,8 +5,6 @@ Guard::Elixir is a [Guard](https://github.com/guard/guard) plugin that automatic
 
 ## Installation
 
-Please be sure to have [Guard] installed first.
-
 The simplest way to install Guard::Elixir is to use [Bundler](http://gembundler.com/).
 
 Add Guard::Elixir to your `Gemfile`:
@@ -34,6 +32,13 @@ Add guard definition to your Guardfile by running the following command:
 ```bash
 guard init elixir
 ```
+
+Run guard to automatically run your Elixir tests
+
+```bash
+guard start
+```
+
 
 ## Usage
 
