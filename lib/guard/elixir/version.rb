@@ -1,5 +1,5 @@
 module Guard
-  module Elixir
-    VERSION = "0.0.1"
+  class ElixirVersion
+    VERSION = "0.0.2"
   end
 end

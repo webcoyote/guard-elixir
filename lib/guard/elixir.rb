@@ -9,11 +9,11 @@ module Guard
       super
       @options = {
         all_on_start: true,
+        dry_run: false,
       }.update(options)
     end
 
     def start
-      UI.info("Guard::Elixir has started watching your files")
       run_all if @options[:all_on_start]
     end
 
@@ -25,6 +25,11 @@ module Guard
 
     # Called on file(s) modifications
     def run_on_change(paths)
+      if @options[:dry_run]
+        paths.each { |path| UI.info "Dry run: #{path}" }
+        return
+      end
+
       total    = 0
       failures = 0
       duration = 0
