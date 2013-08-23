@@ -1,4 +1,5 @@
 # Guard::Elixir
+[![Build Status](https://travis-ci.org/webcoyote/guard-elixir.png?branch=master)](https://travis-ci.org/webcoyote/guard-elixir)
 
 Guard::Elixir is a [Guard](https://github.com/guard/guard) plugin that automatically runs tests for the [Elixir](http://elixir-lang.org/) language using "mix test".
 
@@ -11,7 +12,7 @@ Add Guard::Elixir to your `Gemfile`:
 
 ```ruby
 group :development do
-  gem 'guard-elixir'
+  gem 'guard-elixir', :git => 'git://github.com/webcoyote/guard-elixir'
 end
 ```
 
@@ -19,12 +20,6 @@ and install it by running Bundler:
 
 ```bash
 $ bundle
-```
-
-Or install it yourself:
-
-```bash
-$ gem install guard-elixir
 ```
 
 Add guard definition to your Guardfile by running the following command:
@@ -36,7 +31,7 @@ guard init elixir
 Run guard to automatically run your Elixir tests
 
 ```bash
-guard start
+bundle exec guard start
 ```
 
 
