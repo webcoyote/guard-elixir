@@ -1,4 +1,5 @@
 # Guard::Elixir
+[![Gem Version](https://badge.fury.io/rb/guard-elixir.png)](http://badge.fury.io/rb/guard-elixir)
 [![Build Status](https://travis-ci.org/webcoyote/guard-elixir.png?branch=master)](https://travis-ci.org/webcoyote/guard-elixir)
 
 Guard::Elixir is a [Guard](https://github.com/guard/guard) plugin that automatically runs tests for the [Elixir](http://elixir-lang.org/) language using "mix test".
@@ -6,13 +7,20 @@ Guard::Elixir is a [Guard](https://github.com/guard/guard) plugin that automatic
 
 ## Installation
 
-The simplest way to install Guard::Elixir is to use [Bundler](http://gembundler.com/).
+
+### Manual installation
+
+```bash
+gem install guard-elixir
+```
+
+### Installation using [Bundler](http://gembundler.com/).
 
 Add Guard::Elixir to your `Gemfile`:
 
 ```ruby
 group :development do
-  gem 'guard-elixir', :git => 'git://github.com/webcoyote/guard-elixir'
+  gem 'guard-elixir'
 end
 ```
 
@@ -21,6 +29,9 @@ and install it by running Bundler:
 ```bash
 $ bundle
 ```
+
+
+## Configuration
 
 Add guard definition to your Guardfile by running the following command:
 
@@ -35,11 +46,6 @@ bundle exec guard start
 ```
 
 
-## Usage
-
-Please read [Guard usage doc](http://github.com/guard/guard#readme)
-
-
 ### Standard Guardfile when using Guard::Elixir
 
 ```ruby
@@ -49,6 +55,11 @@ guard :elixir do
   watch(%r{^test/test_helper.exs$})   { "test" }
 end
 ```
+
+## More information
+
+Please read [Guard usage doc](http://github.com/guard/guard#readme)
+
 
 ## Contributing
 
