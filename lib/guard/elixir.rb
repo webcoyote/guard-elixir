@@ -25,6 +25,8 @@ module Guard
 
     # Called on file(s) modifications
     def run_on_change(paths)
+      get_deps if paths.include? "mix.exs"
+
       if @options[:dry_run]
         paths.each { |path| UI.info "Dry run: #{path}" }
         return
@@ -49,6 +51,17 @@ module Guard
         :image => guard_image(failures),
         :priority => guard_priority(failures)
       )
+    end
+
+
+    def get_deps
+      if @options[:dry_run]
+        UI.info "Dry run: deps.get, deps.compile"
+        return
+      end
+
+      run_command("mix deps.get")
+      run_command("mix deps.compile")
     end
 
     private

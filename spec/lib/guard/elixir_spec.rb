@@ -59,6 +59,17 @@ describe "Guard-Elixir" do
       @subject.should_receive(:run_on_change).with(@paths)
       @subject.run_all
     end
+
+    describe "with change to mix.exs" do
+      it "should call 'get_deps'" do
+        paths = ["mix.exs"]
+        @subject = Guard::Elixir.new([],{ dry_run: true })
+        Dir.should_receive(:glob).with("**/*.*").and_return(paths)
+        Guard::Watcher.should_receive(:match_files).with(@subject, paths).and_return(paths)
+        @subject.should_receive(:get_deps)
+        @subject.run_all
+      end
+    end
   end
 
 end
