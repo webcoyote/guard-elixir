@@ -1,11 +1,8 @@
-require 'guard'
-require 'guard/guard'
-require 'guard/watcher'
-require 'guard/notifier'
+require "guard/compat/plugin"
 
 module Guard
-  class Elixir < Guard
-    def initialize(watchers=[], options={})
+  class Elixir < Plugin
+    def initialize(options={})
       super
       @options = {
         all_on_start: true,
